@@ -8,9 +8,7 @@ const submitBtn = document.getElementById("submitBtn");
 let columns = [];
 let file = null;
 
-// ==========================
-// FILE UPLOAD
-// ==========================
+//uploadfile
 fileInput.addEventListener("change", function () {
   file = this.files[0];
 
@@ -33,22 +31,17 @@ fileInput.addEventListener("change", function () {
   }
 });
 
-// ==========================
-// DISPLAY PREVIEW
-// ==========================
 function displayPreview(data) {
   previewTable.innerHTML = "";
 
-  const preview = data.slice(0, 5);
+  const preview = data.slice(0, 5); //5
   columns = Object.keys(preview[0]);
 
-  // Header
   let headerRow = "<tr>";
   columns.forEach(col => headerRow += `<th>${col}</th>`);
   headerRow += "</tr>";
   previewTable.innerHTML += headerRow;
-
-  // Rows
+//row
   preview.forEach(row => {
     let rowHTML = "<tr>";
     columns.forEach(col => rowHTML += `<td>${row[col]}</td>`);
@@ -63,9 +56,7 @@ function displayPreview(data) {
   });
 }
 
-// ==========================
-// TASK SELECTION
-// ==========================
+//selecttask
 taskSelect.addEventListener("change", function () {
   if (this.value === "classification" || this.value === "regression") {
     targetContainer.style.display = "block";
@@ -74,9 +65,7 @@ taskSelect.addEventListener("change", function () {
   }
 });
 
-// ==========================
-// SUBMIT
-// ==========================
+//submit
 submitBtn.addEventListener("click", function () {
   if (!file || !taskSelect.value) {
     alert("Upload file and select task first!");
