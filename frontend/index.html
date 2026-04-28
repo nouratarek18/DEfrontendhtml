@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our DE project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>DE project</h1>
+
+    <!-- A. Upload -->
+    <div class="card">
+      <h2>1. Upload Dataset</h2>
+      <input type="file" id="fileInput" accept=".csv,.xlsx">
+    </div>
+
+    <!-- Preview -->
+    <div class="card">
+      <h2>Data Preview</h2>
+      <table id="previewTable"></table>
+    </div>
+
+    <!-- B. Task Selection -->
+    <div class="card">
+      <h2>2. Select Task</h2>
+
+      <select id="task">
+        <option value="">-- Select Task --</option>
+        <option value="classification">Classification</option>
+        <option value="regression">Regression</option>
+        <option value="clustering">Clustering</option>
+      </select>
+
+      <div id="targetContainer" style="display:none;">
+        <h3>Select Target Column</h3>
+        <select id="target"></select>
+      </div>
+    </div>
+
+    <button id="submitBtn">Start Training</button>
+  </div>
+
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+  <script src="script.js"></script>
+</body>
+</html>
